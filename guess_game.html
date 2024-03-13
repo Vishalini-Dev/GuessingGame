@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Guessing Game</title>
+        <link rel="stylesheet" href="guess_game.css">
+    </head>
+    <body><div class="one" >
+        <h1>GUESS THE NUMBER</h1>
+        <p id="line">We have selected a random number between 1 and 10.<br> See if you can guess it.</p>
+        <input id="inputs">
+        <button onClick="put()">check</button><br>
+        <p id="res"></p>
+        <p id="score">Total score = 0</p>
+        </div>
+    </body>
+    <script>
+        var score=10;
+        var guessNumber=document.getElementById("inputs");
+        var result=document.getElementById("res");
+        var randomNumber=Math.floor(Math.random()*10)+1;
+        var value=document.getElementById("score");
+        function put()
+        {
+            if(guessNumber.value==randomNumber)
+            {
+                result.textContent="You are Right";
+                score=score+1;
+                value.textContent="Total Score="+score;
+                result.style.color="green";
+                alert("CONGRATULATIONS!!! YOU GUESSED IT RIGHT");
+            }
+            else if(guessNumber.value<randomNumber)
+            {
+                result.textContent="You are Wrong";
+                result.style.color="red";
+                alert("OOPS SORRY!! TRY A GREATER NUMBER");
+            }
+            else{
+                result.textContent="You are Wrong";
+                result.style.color="red";
+                alert("OOPS SORRY!! TRY A SMALLER NUMBER");
+            }
+        }
+    </script>
+</html>
